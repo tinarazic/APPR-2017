@@ -9,6 +9,7 @@ Svoje podatke bom uvozila iz eurostata. Prva tabela v obliki CSV-ja vsebuje poda
 
 Povezave:
 -> http://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=demo_ndivdur&lang=en
+
 -> http://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=demo_nind&lang=en
 
 
