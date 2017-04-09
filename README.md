@@ -6,6 +6,7 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2016/17
 Za projekt sem si izbrala temo, ki je v današnjih časih zelo aktualna. Ločitev je postala nekaj običanjega, celo modernega, zato me zanima, kako se to pozna na številkah. Primerjala bom podatke zadnjih desetih let iz različnih držav Evrope. Zanimalo me bo, ali  dolžina zakona vpliva na število ločitev. Izbrala sem si različne dolžine: manj kot leto, manj kot 5 let, 10 let, od 15 do 19 let, od 20 do 24 let in več kot 25 let. Poleg dolžine zakonske zveze, bom pogledala povprečno starost žensk in moških ob prvem zakonu in poskušala ugotoviti pomembnost zakonske zveze v različnih državah ter to napeljati na moje podatke o ločitvah.
 
 Svoje podatke bom uvozila iz eurostata. Prva tabela v obliki CSV-ja vsebuje podatke o dolžini zakonske zveze, druga tabela v obliki HTML pa vsebuje podatke o povprečni starosti.
+
 Povezave:
 -> http://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=demo_ndivdur&lang=en
 -> http://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=demo_nind&lang=en
