@@ -12,6 +12,17 @@ Povezave:
 
 -> http://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=demo_nind&lang=en
 
+1. TABELA: DOLŽINA ZAKONSKE ZVEZE
+-1.stolpec : leto (od leta 2006 do leta 2015)
+-2.stolpec: država (države Evrope)
+-3.stolpec: dolžina zakonske zveze (manj kot leto, manj kot 5 let, 10 let, od 15 do 19 let, od 20 do 24 let, več kot 25 let)
+-4.stolpec: število ločitev 
+
+2.TABELA: POVPREČNA STAROST MOŠKIH IN ŽENSK OB PRVI POROKI
+-1.stolpec: leto (od leta 2006 do leta 2015)
+-2.stolpec: država (države Evrope)
+-3.stolpec: spol (moški, ženska)
+-4.stolpec: povprečna starost
 
 ## Program
 
