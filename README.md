@@ -12,7 +12,7 @@ Povezave:
 
 -> http://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=demo_nind&lang=en
 
-*1. TABELA: DOLŽINA ZAKONSKE ZVEZE*
+**1. TABELA: DOLŽINA ZAKONSKE ZVEZE**
 
 -1.stolpec : leto (od leta 2006 do leta 2015)
 
@@ -22,7 +22,7 @@ Povezave:
 
 -4.stolpec: število ločitev 
 
-*2.TABELA: POVPREČNA STAROST MOŠKIH IN ŽENSK OB PRVI POROKI*
+**2.TABELA: POVPREČNA STAROST MOŠKIH IN ŽENSK OB PRVI POROKI**
 
 -1.stolpec: leto (od leta 2006 do leta 2015)
 
