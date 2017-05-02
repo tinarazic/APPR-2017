@@ -32,6 +32,15 @@ Povezave:
 
 -4.stolpec: povprečna starost
 
+**3.TABELA: ŠTEVILO ZAKONSKIH ZVEZ**
+
+-1.stolpec: leto (od leta 2006 do leta 2015)
+
+-2.stolpec: država (države Evrope)
+
+-3.stolpec: število porok
+
+
 ## Program
 
 Glavni program in poročilo se nahajata v datoteki `projekt.Rmd`. Ko ga prevedemo,
