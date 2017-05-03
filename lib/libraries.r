@@ -1,4 +1,3 @@
-library(rmarkdown)
 library(knitr)
 library(dplyr)
 library(readr)
