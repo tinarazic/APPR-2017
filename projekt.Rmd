@@ -1,5 +1,5 @@
 ---
-title: "Poročilo pri predmetu Analiza podatkov s programom R"
+title: "ANALIZA LOČITEV V DRŽAVAH EVROPE"
 author: " Tina Ražič"
 output:
   html_document: default
@@ -21,7 +21,42 @@ source("lib/libraries.r", encoding = "UTF-8")
 
 # Izbira teme
 
-Za vzorec bomo prikazali nekaj podatkov o slovenskih občinah.
+Za projekt sem si izbrala temo, ki je v današnjih časih zelo aktualna. Ločitev je postala nekaj običanjega, zato me zanima, kako se to pozna na številkah. Primerjala bom podatke zadnjih desetih let iz različnih držav Evrope. Zanimalo me bo, ali dolžina zakona vpliva na število ločitev, zato sem si izbrala različne dolžine. Poleg dolžine zakonske zveze, bom pogledala povprečno starost žensk in moških ob prvem zakonu in poskušala ugotoviti pomembnost zakonske zveze v različnih državah ter to napeljati na moje podatke o ločitvah.V tretji tabeli pa bom pogledala število poroko, zato da bo primerjava med različnimi državami in leti bolj natančna.
+
+Svoje podatke bom uvozila iz eurostata. Prva tabela v obliki CSV-ja vsebuje podatke o dolžini zakonske zveze, druga tabela v obliki HTML vsebuje podatke o povprečni starosti, tretja tabela v obliki csv pa vsebuje podatke o številu porok.
+
+Povezave: -> http://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=demo_ndivdur&lang=en
+
+-> http://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=demo_nind&lang=en
+
+
+  1. TABELA: DOLŽINA ZAKONSKE ZVEZE
+
+-1.stolpec(integer): leto (od leta 2006 do leta 2015) 
+
+-2.stolpec(character): država (države Evrope)
+
+-3.stolpec(character): dolžina zakonske zveze (manj kot leto, manj kot 5 let, 10 let, od 15 do 19 let, od 20 do 24 let, več kot 25 let)
+
+-4.stolpec(number): število ločitev
+
+  2. TABELA: POVPREČNA STAROST MOŠKIH IN ŽENSK OB PRVI POROKI
+
+-1.stolpec(integer): leto (od leta 2006 do leta 2015)
+
+-2.stolpec(character): država (države Evrope)
+
+-3.stolpec(character): spol (moški, ženska)
+
+-4.stolpec(number): povprečna starost
+
+  3.TABELA: ŠTEVILO ZAKONSKIH ZVEZ
+
+-1.stolpec(integer): leto (od leta 2006 do leta 2015)
+
+-2.stolpec(character): država (države Evrope)
+
+-3.stolpec(number): število porok
 
 ***
 
@@ -30,14 +65,15 @@ Za vzorec bomo prikazali nekaj podatkov o slovenskih občinah.
 ```{r uvoz, echo=FALSE, message=FALSE}
 source("uvoz/uvoz_dolzina.r", encoding = "UTF-8")
 source("uvoz/uvoz_stevilo.r", encoding = "UTF-8")
+source("uvoz/uvoz_starost.r", encoding = "UTF-8")
 ```
 
-Uvozili smo podatke o občinah v obliki CSV s statističnega urada ter v obliki HTML
-z Wikipedije. Poglejmo si začetka obeh uvoženih razpredelnic.
+Poglejmo si začetka obeh uvoženih razpredelnic.
 
 ```{r razpredelnice}
 kable(head(dolzina))
-head(poroke)
+kable(head(poroke))
+kable(head(starost))
 ```
 
 
