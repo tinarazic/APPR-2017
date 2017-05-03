@@ -1,4 +1,3 @@
-uvoz.stevilo <-function(zakoni){
 # uvoz podatkov iz csv datoteke, stevilo zakonskih zvez:
   
 library(readr)
@@ -17,6 +16,3 @@ poroke$izbrisi2 <- NULL
 poroke <- poroke[!(is.na(poroke$stevilo_porok)),]
 
 poroke$leto <- parse_integer(poroke$leto)
-
-return(poroke)
-}

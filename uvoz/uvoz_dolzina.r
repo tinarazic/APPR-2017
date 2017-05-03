@@ -1,10 +1,8 @@
-uvoz.dolzina <- function(dolzine){
-
 # uvoz podatkov iz csv datoteke, dolzina zakonske zveze:
   
 library(readr)
 library(dplyr)
-library(reshape2)
+library(reshape)
 
 dolzina <- read_csv("podatki/dolzina_zakonske_zveze.csv",
                     locale=locale(encoding="windows-1250"),
@@ -18,7 +16,3 @@ dolzina$izbrisi2 <- NULL
 dolzina <- dolzina[!(is.na(dolzina$stevilo)),]
 
 dolzina$leto <- parse_integer(dolzina$leto)
-
-return(dolzina)
-}
-
