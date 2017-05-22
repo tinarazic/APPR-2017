@@ -16,3 +16,6 @@ poroke$izbrisi2 <- NULL
 poroke <- poroke[!(is.na(poroke$stevilo_porok)),]
 
 poroke$leto <- parse_integer(poroke$leto)
+
+poroke$drzava <- gsub("^Germany.*$","Germany",poroke$drzava)
+poroke$drzava <- gsub("^Former.*$","Macedonia",poroke$drzava)
