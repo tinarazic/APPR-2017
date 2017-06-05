@@ -64,5 +64,8 @@ starost$popravi <- NULL
 starost <- starost[c(1,2,4,3)]
 
 names(starost)[3] <- "spol"
+<<<<<<< HEAD
 
+=======
+>>>>>>> 944618ac454886135e84e4fb1f55ad81deaf62c0
 names(starost)[4] <- "povprecna"
