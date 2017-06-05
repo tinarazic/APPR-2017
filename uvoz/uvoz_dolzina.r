@@ -16,3 +16,5 @@ dolzina$izbrisi2 <- NULL
 dolzina <- dolzina[!(is.na(dolzina$stevilo)),]
 
 dolzina$leto <- parse_integer(dolzina$leto)
+dolzina$drzava<- gsub("^Germany.*$","Germany",dolzina$drzava)
+dolzina$drzava <- gsub("^Former.*$","Macedonia",dolzina$drzava)

@@ -4,14 +4,19 @@ evropa <- uvozi.zemljevid("http://www.naturalearthdata.com/http//www.naturaleart
   pretvori.zemljevid() %>% filter(continent == "Europe" | sovereignt %in% c("Turkey", "Cyprus"),
                                   long > -30)
 
-g3 <- ggplot() + 
+
+zemljevid <- ggplot() + 
   geom_polygon(data = left_join(evropa,
-                                poroke %>%
-                                  filter(leto > 2014),
+                                poroke %>% filter(leto == 2015) %>%
+                                  mutate(drzava = parse_factor(drzava, levels(evropa$name_long))),
                                 by = c("name_long" = "drzava")),
                aes(x = long, y = lat, group = group, 
-                   fill = stevilo_porok)) + 
-  coord_map(xlim = c(-25, 40), ylim = c(32, 72))
+                   fill = stevilo_porok/1000)) + 
+  coord_map(xlim = c(-25, 40), ylim = c(32, 72)) +
+  guides(fill = guide_colorbar(title = "Poroke (x 1000)"))
                 
+print(zemljevid)
 
-print(g3)
+#spremeni številke v legendi
+#dodaj manjkajoče podatke 
+# spremeni barve da se bo bolj ločilo)(raznolike)
