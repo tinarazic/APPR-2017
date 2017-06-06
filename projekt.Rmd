@@ -103,4 +103,4 @@ print(g.trajanje)
 ```
 
 
-Ali bomo lahko mladost lahko povezali z nepremišljenimi ločitvami pa bom probala ugotiviti v naprednejši analizi s pomočjo modelov. 
+Ali bomo lahko mladost povezali z nepremišljenimi ločitvami pa bom probala ugotoviti v naprednejši analizi s pomočjo modelov. 
