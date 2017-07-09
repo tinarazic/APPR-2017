@@ -21,6 +21,8 @@ Mstarost<- melt(Mstarost, id.vars = "drzava", measure.vars = names(Mstarost)[-1]
 
 colnames(Mstarost)<- c("drzava", "leto", "povprecna.starost")
 
+Mstarost$leto <- parse_number(Mstarost$leto)
+
 Mstarost <- Mstarost[c(2,1,3)]
 
 #uvoz podatkov iz html, povprecna starost žensk ob prvi poroki
@@ -37,6 +39,8 @@ Fstarost<- melt(Fstarost, id.vars = "drzava", measure.vars = names(Fstarost)[-1]
                 na.rm = TRUE)
 
 colnames(Fstarost)<- c("drzava", "leto", "povprecna.starost")
+
+Fstarost$leto <- parse_number(Fstarost$leto)
 
 Fstarost <- Fstarost[c(2,1,3)]
 

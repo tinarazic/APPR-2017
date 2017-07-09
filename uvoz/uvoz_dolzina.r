@@ -20,4 +20,4 @@ dolzina <- read_csv("podatki/dolzina_zakonske_zveze.csv",
 
 dolzina$drzava<- gsub("^Germany.*$","Germany",dolzina$drzava)
 dolzina$drzava <- gsub("^Former.*$","Macedonia",dolzina$drzava)
-
+dolzina$drzava <- gsub("^Kosovo.*$","Kosovo",dolzina$drzava)

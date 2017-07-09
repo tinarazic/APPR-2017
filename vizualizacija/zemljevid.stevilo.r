@@ -12,8 +12,8 @@ zemljevid <- ggplot() +
                                 by = c("name_long" = "drzava")),
                aes(x = long, y = lat, group = group, 
                    fill = stevilo_porok/1000)) + 
-  coord_map(xlim = c(-25, 40), ylim = c(32, 72)) +
-  guides(fill = guide_colorbar(title = "Poroke (x 1000)"))
+              coord_map(xlim = c(-25, 40), ylim = c(32, 72)) +
+              guides(fill = guide_colorbar(title = "Poroke (x 1000)"))
                 
 #spremeni številke v legendi
 #dodaj manjkajoče podatke 
