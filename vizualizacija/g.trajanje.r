@@ -10,6 +10,3 @@ g.trajanje <- ggplot(dolzina %>%
   xlab("DRŽAVA") + ylab("ŠTEVILO LOČITEV") 
 
 
-#spremeni barvo 
-# povečaj oblike
-# y os enote?

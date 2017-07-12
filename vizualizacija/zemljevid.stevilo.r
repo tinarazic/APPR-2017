@@ -15,6 +15,3 @@ zemljevid <- ggplot() +
               coord_map(xlim = c(-25, 40), ylim = c(32, 72)) +
               guides(fill = guide_colorbar(title = "Poroke (x 1000)"))
                 
-#spremeni številke v legendi
-#dodaj manjkajoče podatke 
-# spremeni barve da se bo bolj ločilo)(raznolike)

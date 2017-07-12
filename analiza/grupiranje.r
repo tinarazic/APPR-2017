@@ -23,4 +23,3 @@ zemlj_skupine <- ggplot() +
   aes(x = long, y = lat, group = group, fill = skupina)) + 
   coord_map(xlim = c(-25, 40), ylim = c(32, 72))
 
-# dodaj podatke
