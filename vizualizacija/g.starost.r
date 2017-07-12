@@ -8,5 +8,6 @@ g.starost <- ggplot(starost %>%
   aes(x = drzava, y = povprecna.starost,color = spol,linetype = factor(leto),group = paste(leto, spol)) + 
   geom_line() +
   theme(axis.text.x = element_text(angle = 65, hjust = 1)) + 
-  xlab("DRŽAVA") + ylab("POVPREČNA STAROST") 
+  xlab("DRŽAVA") + ylab("POVPREČNA STAROST") +
+  guides(linetype = guide_legend(title = "Leto"),color = guide_legend(title = "Spol"))
 

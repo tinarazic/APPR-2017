@@ -21,5 +21,6 @@ zemlj_skupine <- ggplot() +
   geom_polygon(data = evropa %>% 
   left_join(skupine, by = c("admin" = "drzava")),
   aes(x = long, y = lat, group = group, fill = skupina)) + 
-  coord_map(xlim = c(-25, 40), ylim = c(32, 72))
+  coord_map(xlim = c(-25, 40), ylim = c(32, 72)) +
+  guides(fill = guide_legend(title = "Skupina"))
 
