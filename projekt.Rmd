@@ -88,14 +88,14 @@ kable(head(dolzina))
 
 Na spodnjem grafu opazimo veliko raznolikost med državami glede starosti fantov in punc ob poroki. Vidimo tudi velik razkorak v desetih letih, saj se je starost v vseh državah povišala razen v Islandiji. Zanimiva je tudi razlika med moškim in ženskim spolom.Skoraj v vseh državah so moški starejši od žensk ob poroki in ta značilnost se je prenesla tudi skozi leta.
 
-```{r g.starost, echo=FALSE, warning = FALSE, fig.align='center', fig.cap='Povprečna starost moškega in ženskega spola ob poroki',message = FALSE}
+```{r g.starost, echo=FALSE, warning = FALSE, fig.align='center', fig.cap='Graf 1: Povprečna starost moškega in ženskega spola ob poroki',message = FALSE}
 source("vizualizacija/g.starost.r", encoding = "UTF-8")
 print(g.starost)
 ```
 
 Poleg povezave med starostjo in številom ločitev sem želela tudi ugotoviti katerih ločitev je največ glede na dolžino zakonske zveze.Na spodnjem grafu vidimo stevilo locitev glede na različno dolžino zakonskih zvez v letu 2015. Opazimo, da so v večini držav najbolj pogoste ločitve po 25 letih zakona ali pa ločitve po manj kot petih letih. Zelo zanimivo pa je, da je najmanj ločitev po 10 letih zakona. Lahko bi rekli, da je to neka zlata doba. 
 
-```{r g.trajanje, echo=FALSE, warning = FALSE, fig.align='center', fig.cap='Število ločitev glede na dolžino zakonske zveze',message = FALSE}
+```{r g.trajanje, echo=FALSE, warning = FALSE, fig.align='center', fig.cap='Graf 2: Število ločitev glede na dolžino zakonske zveze',message = FALSE}
 source("vizualizacija/g.trajanje.r", encoding = "UTF-8")
 print(g.trajanje)
 ```
@@ -108,7 +108,7 @@ Ali bomo lahko mladost povezali z nepremišljenimi ločitvami pa bom probala ugo
 Kot prvi korak napredne analize sem razvrstila države v 5 različnih skupin glede na število ločitev in porok. Zanimivo je, da so skoraj vse skandinavske države v isti skupini, Švedska pa izstopa. Italija in Španija spadata v isto skupino, obe pa mejita na Sredozemsko morje. Mogoče bi lahko kakšno povezavo našli tudi v tem.
 
 
-```{r zemlJ_skupine, echo=FALSE, warning = FALSE, fig.align='center', fig.cap='Grupiranje držav glede na število ločitev in število porok',message = FALSE}
+```{r zemlJ_skupine, echo=FALSE, warning = FALSE, fig.align='center', fig.cap='Zemljevid 1: Grupiranje držav glede na število ločitev in število porok',message = FALSE}
 source("vizualizacija/zemljevid.stevilo.r")
 source("analiza/grupiranje.r", encoding = "UTF-8")
 print(zemlj_skupine)
@@ -118,13 +118,13 @@ Kot sem že pri vizualizaciji omenila, želim ugotoviti, če je kakšna povezava
 Moja hipoteza je bila, da se z višanjem starosti zmanjšuje število ločitev.Zaradi črte linearne regresije(modra črta na prvem grafu in rdeča črta na drugem grafu) jo v grobem lahko potrdimo,ampak ne moremo zagotovo trditi,saj na zmanjšanje ločitev lahko vpliva tudi število porok.
 Ker sm države obarvala z različnimi barvami, vidimo, da se pike istih držav večinoma držijo skupaj.Torej lahko iz grafa opazimo in preberemo tudi veliko karakteristik posamezne države. Primer: V Avstriji se poročajo relativno mladi(ženske okoli 24, moški okoli 27 leta),število ločitev pa se skozi leta ni drastično spreminjalo.
 
-```{r Mlinearna, echo=FALSE, warning = FALSE, fig.align='center', fig.cap='Količina ločitev odvisna od povprečne starosti moških',message = FALSE}
+```{r Mlinearna, echo=FALSE, warning = FALSE, fig.align='center', fig.cap='Graf 3: Količina ločitev odvisna od povprečne starosti moških',message = FALSE}
 source("analiza/linearna_M.r", encoding = "UTF-8")
 print(Mlinearna)
 ```
 
 
-```{r Flinearna, echo=FALSE, warning = FALSE, fig.align='center', fig.cap='Količina ločitev odvisna od povprečne starosti žensk',message = FALSE}
+```{r Flinearna, echo=FALSE, warning = FALSE, fig.align='center', fig.cap='Graf 4: Količina ločitev odvisna od povprečne starosti žensk',message = FALSE}
 source("analiza/linearna_F.r", encoding = "UTF-8")
 print(Flinearna)
 ```
