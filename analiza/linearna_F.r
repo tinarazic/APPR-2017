@@ -1,5 +1,4 @@
 library(ggplot2)
-library(GGally)
 
 Flin <- inner_join(locitve,Fstarost) 
 

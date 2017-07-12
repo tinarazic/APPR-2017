@@ -1,5 +1,4 @@
 library(ggplot2)
-library(GGally)
 
 Mlin <- inner_join(locitve,Mstarost)
 

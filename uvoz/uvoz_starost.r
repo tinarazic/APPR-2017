@@ -6,7 +6,6 @@ library(readr)
 library(dplyr)
 library(XML)
 library(reshape2)
-library(reshape)
 
 Mstarost <- readHTMLTable("podatki/M_povprecna_starost.html",
                           which = 1)

@@ -1,7 +1,5 @@
 library(shiny)
 
-library(shiny)
-
 vektor <- dolzina %>% arrange(drzava) %>% .$drzava %>% unique()
 
 shinyUI(fluidPage(selectInput(inputId = "drzava", 
