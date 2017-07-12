@@ -21,19 +21,15 @@ source("lib/libraries.r", encoding = "UTF-8")
 
 # Izbira teme
 
-Za projekt sem si izbrala temo, ki je v današnjih časih zelo aktualna. Ločitev je postala nekaj običanjega, zato me zanima, kako se to pozna na številkah. Primerjala bom podatke zadnjih desetih let iz različnih držav Evrope. Zanimalo me bo, ali dolžina zakona vpliva na število ločitev, zato sem si izbrala različne dolžine. Poleg dolžine zakonske zveze, bom pogledala povprečno starost žensk in moških ob prvem zakonu in poskušala ugotoviti pomembnost zakonske zveze v različnih državah ter to napeljati na moje podatke o ločitvah.V tretji tabeli pa bom pogledala število poroko, zato da bo primerjava med različnimi državami in leti bolj natančna.
-
+Za projekt sem si izbrala temo, ki je v današnjih časih zelo aktualna. Ločitev je postala nekaj običanjega, zato me zanima, kako se to pozna na številkah. Primerjala bom podatke zadnjih desetih let iz različnih držav Evrope. Zanimalo me bo, ali dolžina zakona vpliva na število ločitev, zato sem si izbrala različne dolžine. Poleg dolžine zakonske zveze, bom pogledala povprečno starost žensk in moških ob prvem zakonu in poskušala ugotoviti povezavo med številom ločitev in starostjo ljudi, ki se poročajo.V tretji in četrti tabeli pa bom pogledala število poroko in število vseh ločitev po državah.
 
 # Podatki
 
-Svoje podatke bom uvozila iz eurostata. Prva tabela v obliki CSV-ja vsebuje podatke o dolžini zakonske zveze, druga tabela v obliki HTML vsebuje podatke o povprečni starosti, tretja tabela v obliki csv pa vsebuje podatke o številu porok.
+Svoje podatke bom uvozila iz eurostata. Prva tabela v obliki CSV-ja vsebuje podatke o dolžini zakonske zveze, druga tabela v obliki HTML vsebuje podatke o povprečni starosti, tretja tabela v obliki csv vsebuje podatke o številu porok, četrta tabela tudi v obliki csv pa vsebuje podatke o številu ločitev. 
 
-Povezave: -> http://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=demo_ndivdur&lang=en
+Povezava: http://ec.europa.eu/eurostat
 
--> http://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=demo_nind&lang=en
-
-
-1. TABELA: DOLŽINA ZAKONSKE ZVEZE
+1. TABELA: ŠTEVILO LOČITEV GLEDE NA DOLŽINO ZAKONSKE ZVEZE
 
 - 1. stolpec(integer): leto (od leta 2006 do leta 2015) 
 
@@ -41,7 +37,7 @@ Povezave: -> http://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=demo_ndivdu
 
 - 3. stolpec(character): dolžina zakonske zveze (manj kot leto, manj kot 5 let, 10 let, od 15 do 19 let, od 20 do 24 let, več kot 25 let)
 
-- 4. stolpec(number): število ločitev
+- 4. stolpec(numeric): število ločitev
 
 2. TABELA: POVPREČNA STAROST MOŠKIH IN ŽENSK OB PRVI POROKI
 
@@ -51,7 +47,7 @@ Povezave: -> http://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=demo_ndivdu
 
 - 3. stolpec(character): spol (moški, ženska)
 
-- 4. stolpec(number): povprečna starost
+- 4. stolpec(numeric): povprečna starost
 
 3. TABELA: ŠTEVILO ZAKONSKIH ZVEZ
 
@@ -59,7 +55,16 @@ Povezave: -> http://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=demo_ndivdu
 
 - 2. stolpec(character): država (države Evrope)
 
-- 3. stolpec(number): število porok
+- 3. stolpec(numeric): število porok
+
+4. TABELA: ŠTEVILO LOČITEV
+
+- 1. stolpec(integer): leto (od leta 2006 do leta 2015)
+
+- 2. stolpec(character): država (države Evrope)
+
+- 3. stolpec(numeric): število ločitev
+
 
 ***
 
@@ -69,33 +74,25 @@ Povezave: -> http://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=demo_ndivdu
 source("uvoz/uvoz_dolzina.r", encoding = "UTF-8")
 source("uvoz/uvoz_stevilo.r", encoding = "UTF-8")
 source("uvoz/uvoz_starost.r", encoding = "UTF-8")
+source("uvoz/uvoz_locitve.r", encoding = "UTF-8")
 ```
 
-Poglejmo si začetka obeh uvoženih razpredelnic.
+Za zgled si poglejmo začetek prve uvožene tabele.
 
 ```{r razpredelnice,message=FALSE}
 kable(head(dolzina))
-kable(head(poroke))
-kable(head(starost))
 ```
 
 # Vizualizacija podatkov
 
-Na zemljevidu sem prikazala število porok v različnih državah.Svetlejša obarvanost države pomeni večje število porok. Manjkajoči podatki so oznaceni s sivo barvo.
-
-```{r zemljevid, echo=FALSE, warning = FALSE, fig.align='center', fig.cap='Število porok',message = FALSE}
-source("vizualizacija/zemljevid.stevilo.r", encoding = "UTF-8")
-print(zemljevid)
-```
-
-Na spodnjem grafu opazimo veliko raznolikost med državami glede starosti fantov in punc ob poroki. Vidimo tudi velik razkorak v desetih letih, saj se je starost v vseh državah povišala razen v Islandiji. Zanimiva je tudi razlika med moškim in ženskim spolom. Zanimalo me bo če se bo ta raznolikost med državami potem prenesla tudi na število ločitev.
+Na spodnjem grafu opazimo veliko raznolikost med državami glede starosti fantov in punc ob poroki. Vidimo tudi velik razkorak v desetih letih, saj se je starost v vseh državah povišala razen v Islandiji. Zanimiva je tudi razlika med moškim in ženskim spolom.Skoraj v vseh državah so moški starejši od žensk ob poroki in ta značilnost se je prenesla tudi skozi leta.
 
 ```{r g.starost, echo=FALSE, warning = FALSE, fig.align='center', fig.cap='Povprečna starost moškega in ženskega spola ob poroki',message = FALSE}
 source("vizualizacija/g.starost.r", encoding = "UTF-8")
 print(g.starost)
 ```
 
-Poleg povezave med starostjo in številom ločitev sem želela tudi ugotoviti katerih ločitev je največ glede na dolžino zakonske zveze. Opazimo, da so v večini držav najbolj pogoste ločitve po 25 letih ali pa ločitve po manj kot petih letih. Zelo zanimivo pa je, da je najmanj ločitev po 10 letih zakona. Je to mogoče prelomnica? 
+Poleg povezave med starostjo in številom ločitev sem želela tudi ugotoviti katerih ločitev je največ glede na dolžino zakonske zveze.Na spodnjem grafu vidimo stevilo locitev glede na različno dolžino zakonskih zvez v letu 2015. Opazimo, da so v večini držav najbolj pogoste ločitve po 25 letih zakona ali pa ločitve po manj kot petih letih. Zelo zanimivo pa je, da je najmanj ločitev po 10 letih zakona. Lahko bi rekli, da je to neka zlata doba. 
 
 ```{r g.trajanje, echo=FALSE, warning = FALSE, fig.align='center', fig.cap='Število ločitev glede na dolžino zakonske zveze',message = FALSE}
 source("vizualizacija/g.trajanje.r", encoding = "UTF-8")
@@ -107,23 +104,26 @@ Ali bomo lahko mladost povezali z nepremišljenimi ločitvami pa bom probala ugo
 
 #Napredna analiza podatkov
 
-GRUPIRANJE:
-```{r zemlJ_skupine, echo=FALSE, warning = FALSE, fig.align='center', fig.cap='Grupiranje držav glede na število ločitve in število porok',message = FALSE}
+Kot prvi korak napredne analize sem razvrstila države v 5 različnih skupin glede na število ločitev in porok. Zanimivo je, da so skoraj vse skandinavske države v isti skupini, Švedska pa izstopa. Italija in Španija spadata v isto skupino, obe pa mejita na Sredozemsko morje. Mogoče bi lahko kakšno povezavo našli tudi v tem.
+
+```{r uvoz2, echo=FALSE, message=FALSE}
+source("vizualizacija/zemljevid.stevilo.r")
+```
+
+```{r zemlJ_skupine, echo=FALSE, warning = FALSE, fig.align='center', fig.cap='Grupiranje držav glede na število ločitev in število porok',message = FALSE}
 source("analiza/grupiranje.r", encoding = "UTF-8")
 print(zemlj_skupine)
 ```
 
-
-POVEZAVA: POVPREČNA STAROST IN ŠTEVILO LOČITEV
-
-MOŠKI:
+Kot sem že pri vizualizaciji omenila, želim ugotoviti, če je kakšna povezava med povprečno starostjo ob poroki in številu ločitev. Na spodnji grafih vidimo metodo linearne regresije za obdobje 10 let. Posebaj sem pogledala podatke za moške in ženske, z različnimi barvami pa sem obarvala države. 
+Moja hipoteza je bila, da se z višanjem starosti zmanjšuje število ločitev.Zaradi črte linearne regresije(modra črta na prvem grafu in rdeča črta na drugem grafu) jo v grobem lahko potrdimo,ampak ne moremo zagotovo trditi,saj na zmanjšanje ločitev lahko vpliva tudi število porok.
+Ker sm države obarvala z različnimi barvami, vidimo, da se pike istih držav večinoma držijo skupaj.Torej lahko iz grafa opazimo in preberemo tudi veliko karakteristik posamezne države. Primer: V Avstriji se poročajo relativno mladi(ženske okoli 24, moški okoli 27 leta),število ločitev pa se skozi leta ni drastično spreminjalo.
 
 ```{r Mlinearna, echo=FALSE, warning = FALSE, fig.align='center', fig.cap='Količina ločitev odvisna od povprečne starosti moških',message = FALSE}
 source("analiza/linearna_M.r", encoding = "UTF-8")
 print(Mlinearna)
 ```
 
-ŽENSKE: 
 
 ```{r Flinearna, echo=FALSE, warning = FALSE, fig.align='center', fig.cap='Količina ločitev odvisna od povprečne starosti žensk',message = FALSE}
 source("analiza/linearna_F.r", encoding = "UTF-8")
@@ -131,7 +131,10 @@ print(Flinearna)
 ```
 
 
-SHINY:
+# APLIKACIJA SHINY
+
+Shiny me je tako očaral, da sem ga uporabila za zaključni del napredne analize.V prvem okenčku lahko izberemo državo, ki jo želimo podrobneje analizirati. V drugem okenčku pa lahko za izbrano državo označimo, katere ločitve glede na dolžino zakonske zveze nas zanimajo. Ko oboje izberemo se nam prikaže graf s točkami, ki kažejo število ločitev v posameznem letu za izbrano trajanje in državo. 
+Za dodatek pa sem za napovedovanje uporabila metodo linearne regresije, zato se nam ob vsaki izbiri na grafu nariše še zelena črta, ki nam napove število ločitev do leta 2025. Pri kakšnih državah črta v prihodnosti teče že pod abcisno osjo. Vemo, da to ni mogoče, lahko pa sklepamo da bo število ločitev zelo padlo.
 
 ```{r shiny, echo=FALSE}
 shinyAppDir("shiny", options = list(width = "100%", height = 700))

@@ -15,6 +15,7 @@ rownames(grupe) <- drzava
 
 k <- kmeans(grupe, 5, nstart = 1000)
 
+skupine <- data.frame(drzava, skupina = factor(k$cluster))
 
 zemlj_skupine <- ggplot() + 
   geom_polygon(data = evropa %>% 

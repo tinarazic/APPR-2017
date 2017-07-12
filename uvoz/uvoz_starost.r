@@ -22,6 +22,7 @@ Mstarost<- melt(Mstarost, id.vars = "drzava", measure.vars = names(Mstarost)[-1]
 colnames(Mstarost)<- c("drzava", "leto", "povprecna.starost")
 
 Mstarost$leto <- parse_number(Mstarost$leto)
+Mstarost$povprecna.starost <- parse_number(Mstarost$povprecna.starost, na = ":(b)")
 
 Mstarost <- Mstarost[c(2,1,3)]
 
@@ -41,6 +42,7 @@ Fstarost<- melt(Fstarost, id.vars = "drzava", measure.vars = names(Fstarost)[-1]
 colnames(Fstarost)<- c("drzava", "leto", "povprecna.starost")
 
 Fstarost$leto <- parse_number(Fstarost$leto)
+Fstarost$povprecna.starost <- parse_number(Fstarost$povprecna.starost, na = ":(b)")
 
 Fstarost <- Fstarost[c(2,1,3)]
 
@@ -51,5 +53,6 @@ starost <- rbind(Mstarost %>% mutate(spol = "M"),
                  Fstarost %>% mutate(spol = "F")) %>%
   transmute(leto = parse_number(leto), drzava, spol = factor(spol), povprecna.starost = parse_number(povprecna.starost, na = ":(b)"))
 
+starost$leto <- parse_integer(starost$leto)
 starost$drzava<- gsub("^Germany.*$","Germany",starost$drzava)
 starost$drzava <- gsub("^Former.*$","Macedonia",starost$drzava)
