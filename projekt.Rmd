@@ -104,3 +104,35 @@ print(g.trajanje)
 
 
 Ali bomo lahko mladost povezali z nepremišljenimi ločitvami pa bom probala ugotoviti v naprednejši analizi s pomočjo modelov. 
+
+#Napredna analiza podatkov
+
+GRUPIRANJE:
+```{r zemlJ_skupine, echo=FALSE, warning = FALSE, fig.align='center', fig.cap='Grupiranje držav glede na število ločitve in število porok',message = FALSE}
+source("analiza/grupiranje.r", encoding = "UTF-8")
+print(zemlj_skupine)
+```
+
+
+POVEZAVA: POVPREČNA STAROST IN ŠTEVILO LOČITEV
+
+MOŠKI:
+
+```{r Mlinearna, echo=FALSE, warning = FALSE, fig.align='center', fig.cap='Količina ločitev odvisna od povprečne starosti moških',message = FALSE}
+source("analiza/linearna_M.r", encoding = "UTF-8")
+print(Mlinearna)
+```
+
+ŽENSKE: 
+
+```{r Flinearna, echo=FALSE, warning = FALSE, fig.align='center', fig.cap='Količina ločitev odvisna od povprečne starosti žensk',message = FALSE}
+source("analiza/linearna_F.r", encoding = "UTF-8")
+print(Flinearna)
+```
+
+
+SHINY:
+
+```{r shiny, echo=FALSE}
+shinyAppDir("shiny", options = list(width = "100%", height = 700))
+```
